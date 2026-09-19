@@ -1,0 +1,428 @@
+{
+  "version": 1,
+  "author": "Rohan Shinde",
+  "editor": "wokwi",
+
+  "parts": [
+
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+
+    {
+      "type": "wokwi-ssd1306",
+      "id": "oled",
+      "top": -10,
+      "left": 330,
+      "attrs": {
+        "i2cAddress": "0x3c"
+      }
+    },
+
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "entryA",
+      "top": 150,
+      "left": 320,
+      "attrs": {
+        "delayTime": "1",
+        "inhibitTime": "0.5",
+        "retrigger": "0"
+      }
+    },
+
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "entryB",
+      "top": 150,
+      "left": 520,
+      "attrs": {
+        "delayTime": "1",
+        "inhibitTime": "0.5",
+        "retrigger": "0"
+      }
+    },
+
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "exitA",
+      "top": 330,
+      "left": 320,
+      "attrs": {
+        "delayTime": "1",
+        "inhibitTime": "0.5",
+        "retrigger": "0"
+      }
+    },
+
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "exitB",
+      "top": 330,
+      "left": 520,
+      "attrs": {
+        "delayTime": "1",
+        "inhibitTime": "0.5",
+        "retrigger": "0"
+      }
+    },
+
+    {
+      "type": "wokwi-pushbutton",
+      "id": "emergency",
+      "top": 500,
+      "left": 300,
+      "attrs": {
+        "color": "red",
+        "label": "EMERGENCY",
+        "key": "M",
+        "bounce": "0"
+      }
+    },
+
+    {
+      "type": "wokwi-pushbutton",
+      "id": "reset",
+      "top": 500,
+      "left": 500,
+      "attrs": {
+        "color": "yellow",
+        "label": "RESET",
+        "key": "R",
+        "bounce": "0"
+      }
+    },
+
+    {
+      "type": "wokwi-led",
+      "id": "greenLed",
+      "top": 150,
+      "left": 750,
+      "attrs": {
+        "color": "green",
+        "label": "NORMAL"
+      }
+    },
+
+    {
+      "type": "wokwi-led",
+      "id": "yellowLed",
+      "top": 220,
+      "left": 750,
+      "attrs": {
+        "color": "yellow",
+        "label": "WARNING"
+      }
+    },
+
+    {
+      "type": "wokwi-led",
+      "id": "redLed",
+      "top": 290,
+      "left": 750,
+      "attrs": {
+        "color": "red",
+        "label": "CRITICAL"
+      }
+    },
+
+    {
+      "type": "wokwi-led",
+      "id": "securityLed",
+      "top": 360,
+      "left": 750,
+      "attrs": {
+        "color": "blue",
+        "label": "SECURITY"
+      }
+    },
+
+    {
+      "type": "wokwi-buzzer",
+      "id": "buzzer",
+      "top": 450,
+      "left": 700,
+      "attrs": {}
+    },
+
+    {
+      "type": "wokwi-servo",
+      "id": "servo",
+      "top": 450,
+      "left": 850,
+      "attrs": {}
+    }
+  ],
+
+  "connections": [
+
+    [
+      "oled:VCC",
+      "esp:3V3",
+      "red",
+      []
+    ],
+
+    [
+      "oled:GND",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+
+    [
+      "oled:SDA",
+      "esp:21",
+      "green",
+      []
+    ],
+
+    [
+      "oled:SCL",
+      "esp:22",
+      "blue",
+      []
+    ],
+
+
+
+
+    [
+      "entryA:VCC",
+      "esp:3V3",
+      "red",
+      []
+    ],
+
+    [
+      "entryA:GND",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+
+    [
+      "entryA:OUT",
+      "esp:16",
+      "green",
+      []
+    ],
+
+
+    
+
+    [
+      "entryB:VCC",
+      "esp:3V3",
+      "red",
+      []
+    ],
+
+    [
+      "entryB:GND",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+
+    [
+      "entryB:OUT",
+      "esp:17",
+      "green",
+      []
+    ],
+
+
+    
+    [
+      "exitA:VCC",
+      "esp:3V3",
+      "red",
+      []
+    ],
+
+    [
+      "exitA:GND",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+
+    [
+      "exitA:OUT",
+      "esp:18",
+      "blue",
+      []
+    ],
+
+
+   
+
+    [
+      "exitB:VCC",
+      "esp:3V3",
+      "red",
+      []
+    ],
+
+    [
+      "exitB:GND",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+
+    [
+      "exitB:OUT",
+      "esp:19",
+      "blue",
+      []
+    ],
+
+
+    
+
+    [
+      "emergency:1.r",
+      "esp:33",
+      "red",
+      []
+    ],
+
+    [
+      "emergency:2.r",
+      "esp:GND.2",
+      "black",
+      []
+    ],
+
+
+   
+
+    [
+      "reset:1.r",
+      "esp:32",
+      "yellow",
+      []
+    ],
+
+    [
+      "reset:2.r",
+      "esp:GND.2",
+      "black",
+      []
+    ],
+
+
+
+    [
+      "greenLed:A",
+      "esp:25",
+      "green",
+      []
+    ],
+
+    [
+      "greenLed:C",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+
+
+  
+
+    [
+      "yellowLed:A",
+      "esp:26",
+      "yellow",
+      []
+    ],
+
+    [
+      "yellowLed:C",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+
+
+  
+
+    [
+      "redLed:A",
+      "esp:27",
+      "red",
+      []
+    ],
+
+    [
+      "redLed:C",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+
+
+
+
+    [
+      "securityLed:A",
+      "esp:14",
+      "blue",
+      []
+    ],
+
+    [
+      "securityLed:C",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+
+
+    [
+      "buzzer:1",
+      "esp:23",
+      "purple",
+      []
+    ],
+
+    [
+      "buzzer:2",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+
+
+    
+
+    [
+      "servo:PWM",
+      "esp:13",
+      "orange",
+      []
+    ],
+
+    [
+      "servo:V+",
+      "esp:5V",
+      "red",
+      []
+    ],
+
+    [
+      "servo:GND",
+      "esp:GND.1",
+      "black",
+      []
+    ]
+  ],
+
+  "dependencies": {}
+}
